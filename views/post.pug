@@ -1,0 +1,11 @@
+article.tile.is-child.notification.is-primary.is-10
+	p.title= post.user.username
+		icon.fa.fa-shopping-cart.fa-lg
+	div.postID(data-photoID=post.id)
+	p.subtitle= post.caption.created_time
+	figure#instaPhoto.image
+		img(src=post.images.standard_resolution.url)
+	br
+	.box.description= post.caption.text
+	//- each comment in post.comments.data
+	//- 	include comment.pug

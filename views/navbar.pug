@@ -1,0 +1,14 @@
+nav.nav
+	.nav-left
+		a.nav-item(href='/')
+			| Photo Bazaar
+	span.nav-toggle
+		span
+		span
+		span
+	.nav-right.nav-menu
+		if myName
+			a#login.nav-item(href="/user")
+				p= myName
+		else
+			a#login.nav-item(href='#') Login

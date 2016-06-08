@@ -1,0 +1,14 @@
+.box.login-form.hidden.is-6
+	p(align='center')
+		| Login with Instagram
+		br
+		a(href='https://api.instagram.com/oauth/authorize/?client_id=c6afcf15e0c0444fa9c815f7adbc169c&redirect_uri=http://localhost:3000/instagram_cb&response_type=code')
+			icon.fa.fa-instagram.fa-3x
+	label.label Username
+	p.control
+		input.input(type='text', placeholder='Username')
+	label.label Password
+	p.control
+		input.input(type='password', placeholder='Password')
+	p.control
+		button.button.is-primary Submit
