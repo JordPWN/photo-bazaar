@@ -13,7 +13,7 @@ const io = require('socket.io').listen(app.listen(3000));
 
 dotenv.load();
 
-app.use(bodyParser.urlencoded());
+app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(session({secret: "stringofwords"}));
 app.use(express.static('public'));
@@ -196,7 +196,8 @@ function getPostsFromInstagram(access_token, cb){
 
 function getAccessToken(cb){
 	request({url: 'http://localhost:3000/instagram/accesstoken', method: "GET"}, function(err, resp, data){
-		console.log("getAccessToken: ", data, "resp: ", resp);
+		var body = JSON.parse(resp.body);
+		console.log("getAccessToken: ", data, "body: ", body);
 		if(err) { return cb(err); }
 		cb(null, data);
 	});	
