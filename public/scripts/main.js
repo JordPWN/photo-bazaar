@@ -41,15 +41,12 @@ $(document).ready(function() {
 		loadShop(photoID, coords);
 	});
 
-	// $('$instaPhoto .image').on('click', function(){
-	// 	$.ajax{
-	// 		method: "GET",
-	// 		url: "",
-	// 		sucess: {
-
-	// 		}
-	// 	}
-	// });
+	//Load more images on bottom
+	$(window).scroll(function() {
+		if($(window).scrollTop() == $(document).height() - $(window).height()) {
+			 // ajax call get data from server and append to the div
+		}
+	});
 
 });
 
@@ -60,17 +57,49 @@ function loadShop(photoID, coords){
 		"left": $(".is-parent").offset().left + $(".is-parent").outerWidth() + 10
 	}).appendTo($(".is-parent"));
 	loadImage(photoID, function(data){
-		console.log(data);
-		// $('.product-image').attr('src', )
+		var targetImage = data.data.images.thumbnail.url;
+		$('.product-image').attr('src', targetImage);
 	});
 }
 
 function loadImage(imageID, cb){
 	$.ajax({
 		method: "GET",
-		url: "/loadimage/" + imageID,
+		url: "/instagram/image/" + imageID,
 		success: function(data){
 			cb(data);
 		}
 	});
 }
+
+(function () {
+	var socket = io.connect('http://localhost:3000'); //Change source to node_module in index.pug
+
+	// var handlers = {
+	// 	'follows': function (data) {
+	// 		console.log('follows message handler');
+	// 		console.log(data);
+	// 	},
+	// 	'posts': function (data) {
+	// 		console.log('posts message handler');
+	// 		console.log(data);
+	// 	}
+	// };
+
+	socket.on("hello", function(data){
+		console.log("HELLO");
+	});
+
+	socket.on('follows', function(data){
+		//get follows
+	});
+
+	socket.on('posts', function(data){
+		//get posts
+		console.log(data);
+
+	});
+
+	//find way to parse with handlers
+
+})();

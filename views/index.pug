@@ -7,16 +7,24 @@ html
 		link(href='https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css', rel='stylesheet', integrity='sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1', crossorigin='anonymous')
 		link(rel='stylesheet', href='stylesheets/main.css', type='text/css')
 	body
-		include navbar.pug
-		if posts
-			include mixins.pug
-			include logged_in.pug
-			include cart.pug
-		else
-			include login.pug
-			include login_form.pug
+		#container
+			#header
+				include navbar.pug
+			#content
+				if posts
+					include feed.pug
+					include logged_in.pug
+					include cart.pug
+				else
+					include login.pug
+					include login_form.pug
 
-		include footer.pug
+				//- Hidden div for access_token
+				
+			#footer
+				include footer.pug
 			
 		script(src='http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js')
+		//- Include node_modules version
+		script(src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.4.6/socket.io.js")
 		script(src='scripts/main.js', type='text/javascript')

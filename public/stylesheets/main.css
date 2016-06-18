@@ -2,6 +2,35 @@
 	padding-top: 80px;
 }*/
 
+html,body{
+	margin:0;
+	padding:0;
+	background-color: white;
+	height:100%; 
+}
+
+#container{
+	position:relative;
+	height:auto !important;
+	min-height:100%;
+}
+
+#header{
+	/*padding-top: 50px;*/
+  background: white;
+}
+
+#content{
+	padding-bottom: 20px;
+}
+
+#footer{
+	position: absolute;
+	width:100%;
+	bottom:0;
+	background:#ddd;
+}
+
 .tile {
 	align-content: center;
 	margin: 0 auto;
@@ -24,20 +53,24 @@ a img{
 #login-form{
 	align-content: center;
 }
-.footer {
-	width: 100%;
-	bottom: 0px;
+.footer{
+	background-color: white;
+	border-top: 1px solid white;
+	padding: 20px 40px;
+	bottom: 0;
+	width:100%;
+	position: relative;
 }
 
 .nav {
 	border-bottom: 1px solid white;
 }
 
-.footer {
+/*.footer {
 	max-height: 50px;
 	border-top: 1px solid white;
 	text-decoration: none;
-}
+}*/
 
 .nav, .footer {
 	background-color: #42afe3;
@@ -67,6 +100,10 @@ a img{
 
 .tile .title .fa {
 	float: right;
+}
+
+.tile.is-ancestor{
+	padding-bottom: 50px;
 }
 
 .tile .title .fa:hover {

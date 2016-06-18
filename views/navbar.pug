@@ -8,6 +8,8 @@ nav.nav
 		span
 	.nav-right.nav-menu
 		if myName
+			a#bazaar.nav-item(href="/bazaar")
+				p Bazaars
 			a#login.nav-item(href="/user")
 				p= myName
 		else
